@@ -3,7 +3,9 @@ import Counter from "./Counter";
 
 const App = () => (
     <div>
-        <Counter />
+        <Counter
+            startNumber={17}
+        />
     </div>
 )
 

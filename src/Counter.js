@@ -4,8 +4,16 @@ import Button from './Button'
 
 class Counter extends React.Component {
 
-    state = {
-        number: 0
+    state = (
+        JSON.parse(localStorage.getItem('State-number'))
+        ||
+        {
+            number: this.props.startNumber || 0
+        }
+    )
+
+    componentDidUpdate() {
+        this.setLocalStorage()
     }
 
     incHandler = () => this.setState({ number: this.state.number + 1 })
@@ -15,6 +23,12 @@ class Counter extends React.Component {
     decFiveHandler = () => this.setState({ number: this.state.number - 5 })
 
     setToZeroHandler = () => this.setState({ number: 0 })
+
+
+    setLocalStorage = () => localStorage.setItem(
+        'State-number',
+        JSON.stringify(this.state)
+    )
 
 
     render() {
