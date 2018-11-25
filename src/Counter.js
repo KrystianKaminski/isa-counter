@@ -4,10 +4,17 @@ import Button from './Button'
 
 class Counter extends React.Component {
 
+    state = {
+        number: 0
+    }
+
 
     render() {
         return (
             <div>
+                <h1>
+                    {this.state.number}
+                </h1>
                 <Button
                     label="Dodaj 1"
                 />
